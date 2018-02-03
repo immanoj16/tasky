@@ -25,8 +25,28 @@ app.on('ready', () => {
 
   tray = new Tray(iconPath);
 
-  tray.on('click', () => {
-    mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
+  tray.on('click', (event, bounds) => {
+
+    console.log(bounds.x, bounds.y);
+
+    const { x, y } = bounds;
+
+    const { height, width } = mainWindow.getBounds();
+
+    if (mainWindow.isVisible()) {
+      mainWindow.hide()
+    } else {
+
+      const yPosition = process.platform === 'win32' ? y - height : y;
+
+      mainWindow.setBounds({
+        x: 980,  // x - width / 2
+        y: yPosition,
+        height,
+        width
+      });
+      mainWindow.show()
+    }
   });
 
   mainWindow.on('show', () => {
