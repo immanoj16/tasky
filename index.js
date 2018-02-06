@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Tray } = require('electron');
+const { app, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 const TimerTray = require('./app/timer-tray');
@@ -17,7 +17,8 @@ app.on('ready', () => {
     height: 500,
     frame: false,
     resizable: false,
-    show: false
+    show: false,
+    webPreferences: { backgroundThrottling: false }
   };
 
   mainWindow = new MainWindow(options);
@@ -32,5 +33,10 @@ app.on('ready', () => {
   const iconPath = path.join(__dirname, `./src/assets/${iconName}`);
 
   tray = new TimerTray(iconPath, mainWindow);
+
+  ipcMain.on('update:timer', (event, timeLeft) => {
+    if (process.platform === 'darwin')
+      tray.setTitle(timeLeft);
+  })
 
 });
