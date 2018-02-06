@@ -1,9 +1,10 @@
 const { app, BrowserWindow, Tray } = require('electron');
 const path = require('path');
 const url = require('url');
-const TimerTray = require('./app/timer_tray');
+const TimerTray = require('./app/timer-tray');
 
 let mainWindow;
+let tray;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
@@ -20,8 +21,13 @@ app.on('ready', () => {
     slashes: true
   }));
 
+  mainWindow.on('blur', () => {
+    mainWindow.hide();
+  });
+
   const iconName = process.platform === 'win32' ? 'windows-icon.png' : 'iconTemplate.png';
   const iconPath = path.join(__dirname, `./src/assets/${iconName}`);
 
-  new TimerTray(iconPath, mainWindow);
+  tray = new TimerTray(iconPath, mainWindow);
+
 });
