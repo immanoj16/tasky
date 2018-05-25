@@ -4,7 +4,7 @@
   "releaseName": "Timer",
   "version": "1.0.0",
   "description": "Electron timer app",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "electron": "electron .",
