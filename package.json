@@ -31,5 +31,42 @@
     "react-router-dom": "^4.0.0",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
+  },
+  "build": {
+    "appId": "com.electron.tasky",
+    "directories": {
+      "output": "dist"
+    },
+    "linux": {
+      "target": [
+        "snap"
+      ]
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "pkg",
+        "dmg",
+        "zip",
+        "mas"
+      ],
+      "type": "distribution",
+      "icon": "build/icon.icns"
+    },
+    "mas": {
+      "type": "distribution",
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "public/",
+      "node_modules/**/*",
+      "src/**/*",
+      "main.js",
+      "package.json",
+      "embedded.provisionprofile"
+    ]
   }
 }
