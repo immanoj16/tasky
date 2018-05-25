@@ -30,9 +30,9 @@ before_script:
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      yarn dist:l
+      yarn release
     else
-      yarn dist:m
+      yarn release
     fi
 
 branches:
