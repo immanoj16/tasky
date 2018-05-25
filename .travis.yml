@@ -9,7 +9,6 @@ matrix:
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 
     - os: linux
-      services: docker
       language: generic
 
 cache:
@@ -31,9 +30,9 @@ before_script:
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      /bin/bash "yarn release --linux"
+      yarn dist:l
     else
-      /bin/bash "yarn release --mac"
+      yarn dist:m
     fi
 
 branches:
