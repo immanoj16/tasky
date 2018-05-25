@@ -31,9 +31,9 @@ before_script:
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      yarn release --linux"
+      /bin/bash "yarn release --linux"
     else
-      yarn release --mac
+      /bin/bash "yarn release --mac"
     fi
 
 branches:
