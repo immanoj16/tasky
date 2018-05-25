@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "electron": "electron ."
+    "electron": "electron .",
+    "dist": "electron-builder"
   },
   "author": "Manoj",
   "devDependencies": {
