@@ -8,9 +8,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "electron": "electron .",
-    "dist:w": "build --win --x64",
-    "dist:l": "build --linux --x64",
-    "dist:m": "build --mac --x64"
+    "dist-w": "build --win --x64",
+    "release": "electron-builder"
   },
   "author": "Manoj",
   "devDependencies": {
