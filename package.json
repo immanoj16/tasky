@@ -9,7 +9,7 @@
     "start": "webpack-dev-server",
     "electron": "electron .",
     "dist-w": "build --win --x64",
-    "release": "electron-builder"
+    "release": "./node_modules/.bin/electron-builder"
   },
   "author": "Manoj",
   "devDependencies": {
