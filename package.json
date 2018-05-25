@@ -1,12 +1,14 @@
 {
   "name": "timer",
+  "packageName": "Timer",
+  "releaseName": "Timer",
   "version": "1.0.0",
   "description": "Electron timer app",
   "main": "main.js",
   "scripts": {
     "start": "webpack-dev-server",
     "electron": "electron .",
-    "dist": "electron-builder"
+    "dist": "build --win --x64"
   },
   "author": "Manoj",
   "devDependencies": {
