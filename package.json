@@ -64,9 +64,8 @@
       "public/",
       "node_modules/**/*",
       "src/**/*",
-      "main.js",
-      "package.json",
-      "embedded.provisionprofile"
+      "index.js",
+      "package.json"
     ]
   }
 }
